@@ -1,2 +1,2 @@
 # integration-helpers
-Helpers for integarting into the velocity network
+Helpers for integrating into the velocity network
