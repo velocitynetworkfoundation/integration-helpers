@@ -1,0 +1,754 @@
+{
+	"info": {
+		"_postman_id": "aa475081-f264-4c81-90eb-3ac3ba21a660",
+		"name": "VCL / Registrar / Organizations",
+		"description": "Testing the swagger api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v0.6/organizations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/issuers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/issuers?type=:type",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"issuers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": ":type"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/issuers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								"issuers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/did:ethr:0xfee9e7e1da743ba63f02334b95f302c5cb660b8e",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"did:ethr:0xfee9e7e1da743ba63f02334b95f302c5cb660b8e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"string\",\n    \"logo\": \"https://example.com/logo.png\",\n    \"location\": {\n        \"countryCode\": \"US\",\n        \"regionCode\": \"CA\"\n    },\n    \"founded\": {\n        \"year\": 1981\n    }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"registrationNumbers\": [\n        {\n            \"authority\": \"<string>\",\n            \"number\": \"<string>\",\n            \"uri\": \"<uri>\"\n        },\n        {\n            \"authority\": \"<string>\",\n            \"number\": \"<string>\",\n            \"uri\": \"<uri>\"\n        }\n    ],\n    \"logo\": \"<string>\",\n    \"location\": {\n        \"countryCode\": \"<regex>\",\n        \"regionCode\": \"<regex>\"\n    },\n    \"founded\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"closed\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"contactEmail\": \"<email>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did/keys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/keys",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"keys"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/keys",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"keys"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did/services",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serviceEndpoint\":\"http://testagent.velocitycareerlabs.io\",\n    \"id\":\"velocity-credential-agent-issuer-3\",\n    \"type\":\"VelocityCredentialAgentIssuer_v1.0\",\n    \"credentialTypes\": [\"CurrentEmploymentPosition\"]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"services"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did/services/:serviceId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						":did",
+						"services",
+						":serviceId"
+					],
+					"variable": [
+						{
+							"key": "did"
+						},
+						{
+							"key": "serviceId"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did/services/:serviceId",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						":did",
+						"services",
+						":serviceId"
+					],
+					"variable": [
+						{
+							"key": "did"
+						},
+						{
+							"key": "serviceId"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/api/v0.6/organizations/:did/services/:serviceId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						":did",
+						"services",
+						":serviceId"
+					],
+					"variable": [
+						{
+							"key": "did"
+						},
+						{
+							"key": "serviceId"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7050b4b3-3249-4596-a6cf-277818363b1f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5d5399e4-4b6f-45a1-abae-66a46db32e47",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "152406bb-622c-451d-ab8c-ad890be304fd",
+			"key": "baseUrl",
+			"value": "https://stagingservices.velocitycareerlabs.io"
+		},
+		{
+			"id": "4a170811-7d90-40fa-9ebb-9b368bd4d7b0",
+			"key": "did",
+			"value": "did:ethr:example"
+		},
+		{
+			"id": "60f2ed8f-915e-43d8-ab63-95f7f0b46385",
+			"key": "serviceIdFragment",
+			"value": "credential-agent-issuer-1"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
