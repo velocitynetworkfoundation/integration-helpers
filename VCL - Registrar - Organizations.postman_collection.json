@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "aa475081-f264-4c81-90eb-3ac3ba21a660",
-		"name": "VCL / Registrar / Organizations",
+		"name": "Velocity / Registrar / Organizations",
 		"description": "Testing the swagger api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -490,7 +490,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -498,17 +498,9 @@
 						"api",
 						"v0.6",
 						"organizations",
-						":did",
+						"{{did}}",
 						"services",
-						":serviceId"
-					],
-					"variable": [
-						{
-							"key": "did"
-						},
-						{
-							"key": "serviceId"
-						}
+						"{{serviceIdFragment}}"
 					]
 				}
 			},
@@ -645,7 +637,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -653,17 +645,9 @@
 						"api",
 						"v0.6",
 						"organizations",
-						":did",
+						"{{did}}",
 						"services",
-						":serviceId"
-					],
-					"variable": [
-						{
-							"key": "did"
-						},
-						{
-							"key": "serviceId"
-						}
+						"{{serviceIdFragment}}"
 					]
 				}
 			},
@@ -711,6 +695,16 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.EoDg_46Qi28tScPD5xwHW4TCdEtN8-gzYoAgFa34fCQ",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -735,17 +729,17 @@
 	],
 	"variable": [
 		{
-			"id": "152406bb-622c-451d-ab8c-ad890be304fd",
+			"id": "64c2fc3d-3973-48a1-8e9e-12ece789024e",
 			"key": "baseUrl",
 			"value": "https://stagingservices.velocitycareerlabs.io"
 		},
 		{
-			"id": "4a170811-7d90-40fa-9ebb-9b368bd4d7b0",
+			"id": "1771568f-bc9b-466e-aaac-67a24a1a39d1",
 			"key": "did",
 			"value": "did:ethr:example"
 		},
 		{
-			"id": "60f2ed8f-915e-43d8-ab63-95f7f0b46385",
+			"id": "b105074d-9b86-4c59-9ee5-ae4ee5af791f",
 			"key": "serviceIdFragment",
 			"value": "credential-agent-issuer-1"
 		}
