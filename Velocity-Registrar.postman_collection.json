@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "aa475081-f264-4c81-90eb-3ac3ba21a660",
+		"_postman_id": "af452bd8-86fd-48a0-98cb-1d4e5849df91",
 		"name": "Velocity / Registrar / Organizations",
 		"description": "Testing the swagger api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "/api/v0.6/organizations",
+			"name": "Orgs: Get All Organization DID Docs",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -56,7 +56,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations",
+			"name": "Orgs: Create Organziation DID Doc",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -118,7 +118,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/issuers",
+			"name": "Orgs: Get Issuer DID Docs by Credential Type Issued",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -136,7 +136,7 @@
 					"query": [
 						{
 							"key": "type",
-							"value": ":type"
+							"value": "CurrentEmploymentPosition"
 						}
 					]
 				}
@@ -175,7 +175,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did",
+			"name": "Orgs: Get Organziation DID Doc",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -231,7 +231,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did",
+			"name": "Orgs: Delete Organization DID/DID Doc",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -287,7 +287,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did",
+			"name": "Orgs: Update Organization Basic Profile",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -356,7 +356,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did/keys",
+			"name": "Keys: Add or Rotate Signing Keys",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -414,7 +414,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did/services",
+			"name": "Services: Add a Service to an Organization  ",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -485,7 +485,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did/services/:serviceId",
+			"name": "Services: Get an Organization's Service Data",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -548,7 +548,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did/services/:serviceId",
+			"name": "Services: Update an Organization Service",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -562,7 +562,7 @@
 					"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -570,17 +570,9 @@
 						"api",
 						"v0.6",
 						"organizations",
-						":did",
+						"{{did}}",
 						"services",
-						":serviceId"
-					],
-					"variable": [
-						{
-							"key": "did"
-						},
-						{
-							"key": "serviceId"
-						}
+						"{{serviceIdFragment}}"
 					]
 				}
 			},
@@ -632,7 +624,7 @@
 			]
 		},
 		{
-			"name": "/api/v0.6/organizations/:did/services/:serviceId",
+			"name": "Services: Delete an Organization Service",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -700,7 +692,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.UuJwTxOX4iMn-xCeVMYa7PXISun3NF_vFD5G3l_BEmE",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.vssTp--KThrqP0-E7BOpXfTneXmQUYcv0elKAcXhAVg",
 				"type": "string"
 			}
 		]
@@ -709,7 +701,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "7050b4b3-3249-4596-a6cf-277818363b1f",
+				"id": "d6819b7a-f4ad-4863-b3bb-9a75a0ea80fb",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -719,7 +711,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "5d5399e4-4b6f-45a1-abae-66a46db32e47",
+				"id": "335a4fb5-8d9b-4e3e-bb43-a4f03c2836a3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -729,17 +721,17 @@
 	],
 	"variable": [
 		{
-			"id": "64c2fc3d-3973-48a1-8e9e-12ece789024e",
+			"id": "e98e810b-aec4-488c-98b9-6391904cfcce",
 			"key": "baseUrl",
 			"value": "https://stagingservices.velocitycareerlabs.io"
 		},
 		{
-			"id": "1771568f-bc9b-466e-aaac-67a24a1a39d1",
+			"id": "1a4c9359-29ea-43ad-8d42-12dab3d233d5",
 			"key": "did",
 			"value": "did:ethr:example"
 		},
 		{
-			"id": "b105074d-9b86-4c59-9ee5-ae4ee5af791f",
+			"id": "484f5f48-c332-4f46-b4d5-6f62f5c231ee",
 			"key": "serviceIdFragment",
 			"value": "credential-agent-issuer-1"
 		}
