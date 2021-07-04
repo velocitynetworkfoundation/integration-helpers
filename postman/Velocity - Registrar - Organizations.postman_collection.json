@@ -1,0 +1,688 @@
+{
+	"info": {
+		"_postman_id": "d3f4efed-81fb-4eee-9ee1-7174670980ae",
+		"name": "Velocity / Registrar / Organizations Copy",
+		"description": "Testing the swagger api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Orgs: Get All Organization DID Docs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Create Organziation DID Doc",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.EoDg_46Qi28tScPD5xwHW4TCdEtN8-gzYoAgFa34fCQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Get Issuer DID Docs by Credential Type Issued",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/issuers?type=CurrentEmploymentPosition",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"issuers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "CurrentEmploymentPosition"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/issuers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								"issuers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Get Organziation DID Doc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Update Organization Basic Profile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"string\",\n    \"logo\": \"https://example.com/logo.png\",\n    \"location\": {\n        \"countryCode\": \"US\",\n        \"regionCode\": \"CA\"\n    },\n    \"founded\": {\n        \"year\": 1981\n    }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"registrationNumbers\": [\n        {\n            \"authority\": \"<string>\",\n            \"number\": \"<string>\",\n            \"uri\": \"<uri>\"\n        },\n        {\n            \"authority\": \"<string>\",\n            \"number\": \"<string>\",\n            \"uri\": \"<uri>\"\n        }\n    ],\n    \"logo\": \"<string>\",\n    \"location\": {\n        \"countryCode\": \"<regex>\",\n        \"regionCode\": \"<regex>\"\n    },\n    \"founded\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"closed\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"contactEmail\": \"<email>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Keys: Add or Rotate Signing Keys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/keys",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"keys"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/keys",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"keys"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Services: Add a Service to an Organization  ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serviceEndpoint\":\"http://testagent.velocitycareerlabs.io\",\n    \"id\":\"velocity-credential-agent-issuer-3\",\n    \"type\":\"VelocityCredentialAgentIssuer_v1.0\",\n    \"credentialTypes\": [\"CurrentEmploymentPosition\"]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"services"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Services: Get an Organization's Service Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"services",
+						"{{serviceIdFragment}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Services: Update an Organization Service",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\",\n    \"credentialTypes\": [\n        \"PastEmploymentPosition\",\n        \"CurrentEmploymentPosition\",\n        \"EducationDegree\",\n        \"Badge\",\n        \"Assessment\",\n        \"Certification\",\n        \"Course\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"services",
+						"{{serviceIdFragment}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Services: Delete an Organization Service",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"services",
+						"{{serviceIdFragment}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.vssTp--KThrqP0-E7BOpXfTneXmQUYcv0elKAcXhAVg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://stagingservices.velocitycareerlabs.io"
+		},
+		{
+			"key": "did",
+			"value": "did:ethr:example"
+		},
+		{
+			"key": "serviceIdFragment",
+			"value": "credential-agent-issuer-1"
+		}
+	]
+}
