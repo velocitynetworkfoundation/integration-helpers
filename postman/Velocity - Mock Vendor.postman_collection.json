@@ -1,0 +1,1482 @@
+{
+	"info": {
+		"_postman_id": "fd8ff70f-ae28-4a5d-b358-f19ff69560fc",
+		"name": "Velocity / Mock Vendor",
+		"description": "Testing the swagger api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "inspection",
+			"item": [
+				{
+					"name": "/inspection/find-or-create-applicant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": {\r\n    \"localized\": {\r\n      \"en\": \"Adam\"\r\n    }\r\n  },\r\n  \"lastName\": {\r\n    \"localized\": {\r\n      \"en\": \"Smith\"\r\n    }\r\n  },\r\n  \"email\": \"adam.smith@example.com\",\r\n  \"phone\": \"+15556192191\",\r\n  \"location\": {\r\n    \"countryCode\": \"US\",\r\n    \"regionCode\": \"CA\"\r\n  },\r\n  \"tenantDID\": \"did:velocity:z7YfwIksnH\",\r\n  \"presentationId\": \"e16aed64-517b-41e3-ad14-4f3d3008dd12\",\r\n  \"vendorDisclosureId\": \"6492779589\",\r\n  \"exchangeId\": \"8c46438e-b6b8-11ea-b3de-0242ac130004\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/inspection/find-or-create-applicant",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"inspection",
+								"find-or-create-applicant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/inspection/find-or-create-applicant",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"inspection",
+										"find-or-create-applicant"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/inspection/add-credentials-to-applicant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tenantDID\": \"did:velocity:z7YfwIksnH\",\r\n  \"vendorDisclosureId\": \"6492779589\",\r\n  \"vendorApplicantId\": \"60d0911ceaa6d5f02ac58a3c\",\r\n  \"presentationId\": \"e16aed64-517b-41e3-ad14-4f3d3008dd12\",\r\n  \"exchangeId\": \"8c46438e-b6b8-11ea-b3de-0242ac130004\",\r\n  \"credentials\": [\r\n    {\r\n      \"id\": \"did:velocity:credential99999999999\",\r\n      \"type\": [\r\n        \"CurrentEmploymentPosition\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:iamanissuer1234567890\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"company\": \"did:velocity:iamanissuer1234567890\",\r\n        \"companyName\": {\r\n          \"localized\": {\r\n            \"en\": \"ACME Corporation\"\r\n          }\r\n        },\r\n        \"title\": {\r\n          \"localized\": {\r\n            \"en\": \"Programme Manager\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 2,\r\n          \"year\": 2015\r\n        },\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.321Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:5555555555\",\r\n      \"type\": [\r\n        \"PastEmploymentPosition\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:iamanissuer1234567890\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"company\": \"did:velocity:iamanissuer1234567890\",\r\n        \"companyName\": {\r\n          \"localized\": {\r\n            \"en\": \"ACME Corporation\"\r\n          }\r\n        },\r\n        \"title\": {\r\n          \"localized\": {\r\n            \"en\": \"Project Manager\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 8,\r\n          \"year\": 2009\r\n        },\r\n        \"endMonthYear\": {\r\n          \"month\": 1,\r\n          \"year\": 2015\r\n        },\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.899Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:0000123456\",\r\n      \"type\": [\r\n        \"EducationDegree\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:baseuissuer987654320\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"school\": \"did:velocity:baseuissuer987654320\",\r\n        \"schoolName\": {\r\n          \"localized\": {\r\n            \"en\": \"BASE Univerity\"\r\n          }\r\n        },\r\n        \"degreeName\": {\r\n          \"localized\": {\r\n            \"en\": \"Bachelor\"\r\n          }\r\n        },\r\n        \"program\": {\r\n          \"localized\": {\r\n            \"en\": \"Computer Science\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 9,\r\n          \"year\": 2002\r\n        },\r\n        \"endMonthYear\": {\r\n          \"month\": 5,\r\n          \"year\": 2005\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-01T19:03:23.001Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      }\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/inspection/add-credentials-to-applicant",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"inspection",
+								"add-credentials-to-applicant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/inspection/add-credentials-to-applicant",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"inspection",
+										"add-credentials-to-applicant"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/inspection/receive-unchecked-credentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tenantDID\": \"did:velocity:z7YfwIksnH\",\r\n  \"vendorDisclosureId\": \"6492779589\",\r\n  \"presentationId\": \"e16aed64-517b-41e3-ad14-4f3d3008dd12\",\r\n  \"exchangeId\": \"8c46438e-b6b8-11ea-b3de-0242ac130004\",\r\n  \"credentials\": [\r\n    {\r\n      \"id\": \"did:velocity:kyc007\",\r\n      \"type\": [\r\n        \"IdentityAndContact\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:kycissuer\"\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.321Z\",\r\n      \"credentialSubject\": {\r\n        \"firstName\": {\r\n          \"localized\": {\r\n            \"en\": \"Adam\"\r\n          }\r\n        },\r\n        \"lastName\": {\r\n          \"localized\": {\r\n            \"en\": \"Smith\"\r\n          }\r\n        },\r\n        \"emails\": [\r\n          \"adam.smith@example.com\"\r\n        ],\r\n        \"phones\": [\r\n          \"+15556192191\"\r\n        ],\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential99999999999\",\r\n      \"type\": [\r\n        \"CurrentEmploymentPosition\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:iamanissuer1234567890\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"company\": \"did:velocity:iamanissuer1234567890\",\r\n        \"companyName\": {\r\n          \"localized\": {\r\n            \"en\": \"ACME Corporation\"\r\n          }\r\n        },\r\n        \"title\": {\r\n          \"localized\": {\r\n            \"en\": \"Programme Manager\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 2,\r\n          \"year\": 2015\r\n        },\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.321Z\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:5555555555\",\r\n      \"type\": [\r\n        \"PastEmploymentPosition\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:iamanissuer1234567890\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"company\": \"did:velocity:iamanissuer1234567890\",\r\n        \"companyName\": {\r\n          \"localized\": {\r\n            \"en\": \"ACME Corporation\"\r\n          }\r\n        },\r\n        \"title\": {\r\n          \"localized\": {\r\n            \"en\": \"Project Manager\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 8,\r\n          \"year\": 2009\r\n        },\r\n        \"endMonthYear\": {\r\n          \"month\": 1,\r\n          \"year\": 2015\r\n        },\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.899Z\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:0000123456\",\r\n      \"type\": [\r\n        \"EducationDegree\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:baseuissuer987654320\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"school\": \"did:velocity:baseuissuer987654320\",\r\n        \"schoolName\": {\r\n          \"localized\": {\r\n            \"en\": \"BASE Univerity\"\r\n          }\r\n        },\r\n        \"degreeName\": {\r\n          \"localized\": {\r\n            \"en\": \"Bachelor\"\r\n          }\r\n        },\r\n        \"program\": {\r\n          \"localized\": {\r\n            \"en\": \"Computer Science\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 9,\r\n          \"year\": 2002\r\n        },\r\n        \"endMonthYear\": {\r\n          \"month\": 5,\r\n          \"year\": 2005\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-01T19:03:23.001Z\"\r\n    }\r\n  ],\r\n  \"rawCredentials\": [\r\n    {\r\n      \"id\": \"did:velocity:kyc007\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential99999999999\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkaWQ6dmVsb2NpdHk6MTIzMTI5M2kyMTMxMiIsIm5hbWUiOiJGcmVkIEFzdGFpciIsImlhdCI6MTUxNjgzOTAyMn0.hs_V0Fp0UFAy_TtbuBK9OS14O6OHE0c4fJ1pfg8po24\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:5555555555\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkaWQ6dmVsb2NpdHk6MTIzMTI5M2kyMTMxMiIsImlhdCI6MTUxNjgzOTAyMiwidmMiOnsiY3JlZGVudGlhbFN1YmplY3QiOnsiY29tcGFueSI6ImRpZDp2ZWxvY2l0eTppYW1hbmlzc3VlcjEyMzQ1Njc4OTAiLCJjb21wYW55TmFtZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJBQ01FIENvcnBvcmF0aW9uIn19LCJ0aXRsZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJQcm9qZWN0IE1hbmFnZXIifX0sInN0YXJ0TW9udGhZZWFyIjp7Im1vbnRoIjo4LCJ5ZWFyIjoyMDA5fSwiZW5kTW9udGhZZWFyIjp7Im1vbnRoIjoxLCJ5ZWFyIjoyMDE1fSwibG9jYXRpb24iOnsiY291bnRyeUNvZGUiOiJVUyIsInJlZ2lvbkNvZGUiOiJDQSJ9fX19.iDPkL6o1OzRO9L53Hg-t9sHBXjrY87hAWcTUEC3zc6Y\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:0000123456\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkaWQ6dmVsb2NpdHk6MTIzMTI5M2kyMTMxMiIsImlhdCI6MTUxNjgzOTAyMiwidmMiOnsiY3JlZGVudGlhbFN1YmplY3QiOnsic2Nob29sIjoiZGlkOnZlbG9jaXR5OmJhc2V1aXNzdWVyOTg3NjU0MzIwIiwic2Nob29sTmFtZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJCQVNFIFVuaXZlcml0eSJ9fSwiZGVncmVlTmFtZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJCYWNoZWxvciJ9fSwicHJvZ3JhbSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJDb21wdXRlciBTY2llbmNlIn19LCJzdGFydE1vbnRoWWVhciI6eyJtb250aCI6OSwieWVhciI6MjAwMn0sImVuZE1vbnRoWWVhciI6eyJtb250aCI6NSwieWVhciI6MjAwNX19fX0.vtoxlyxrkGm3mSLRGI6PQdV4OK4z0x6MRt3kTkSPHmM\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/inspection/receive-unchecked-credentials",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"inspection",
+								"receive-unchecked-credentials"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/inspection/receive-unchecked-credentials",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"inspection",
+										"receive-unchecked-credentials"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/inspection/receive-checked-credentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tenantDID\": \"did:velocity:z7YfwIksnH\",\r\n  \"vendorDisclosureId\": \"6492779589\",\r\n  \"presentationId\": \"e16aed64-517b-41e3-ad14-4f3d3008dd12\",\r\n  \"exchangeId\": \"8c46438e-b6b8-11ea-b3de-0242ac130004\",\r\n  \"credentials\": [\r\n    {\r\n      \"id\": \"did:velocity:kyc007\",\r\n      \"type\": [\r\n        \"IdentityAndContact\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:kycissuer\"\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.321Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"firstName\": {\r\n          \"localized\": {\r\n            \"en\": \"Adam\"\r\n          }\r\n        },\r\n        \"lastName\": {\r\n          \"localized\": {\r\n            \"en\": \"Smith\"\r\n          }\r\n        },\r\n        \"emails\": [\r\n          \"adam.smith@example.com\"\r\n        ],\r\n        \"phones\": [\r\n          \"+15556192191\"\r\n        ],\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential99999999999\",\r\n      \"type\": [\r\n        \"CurrentEmploymentPosition\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:iamanissuer1234567890\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"company\": \"did:velocity:iamanissuer1234567890\",\r\n        \"companyName\": {\r\n          \"localized\": {\r\n            \"en\": \"ACME Corporation\"\r\n          }\r\n        },\r\n        \"title\": {\r\n          \"localized\": {\r\n            \"en\": \"Programme Manager\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 2,\r\n          \"year\": 2015\r\n        },\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.321Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:5555555555\",\r\n      \"type\": [\r\n        \"PastEmploymentPosition\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:iamanissuer1234567890\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"company\": \"did:velocity:iamanissuer1234567890\",\r\n        \"companyName\": {\r\n          \"localized\": {\r\n            \"en\": \"ACME Corporation\"\r\n          }\r\n        },\r\n        \"title\": {\r\n          \"localized\": {\r\n            \"en\": \"Project Manager\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 8,\r\n          \"year\": 2009\r\n        },\r\n        \"endMonthYear\": {\r\n          \"month\": 1,\r\n          \"year\": 2015\r\n        },\r\n        \"location\": {\r\n          \"countryCode\": \"US\",\r\n          \"regionCode\": \"CA\"\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-10T06:02:21.899Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:0000123456\",\r\n      \"type\": [\r\n        \"EducationDegree\"\r\n      ],\r\n      \"issuer\": {\r\n        \"id\": \"did:velocity:baseuissuer987654320\"\r\n      },\r\n      \"credentialSubject\": {\r\n        \"school\": \"did:velocity:baseuissuer987654320\",\r\n        \"schoolName\": {\r\n          \"localized\": {\r\n            \"en\": \"BASE Univerity\"\r\n          }\r\n        },\r\n        \"degreeName\": {\r\n          \"localized\": {\r\n            \"en\": \"Bachelor\"\r\n          }\r\n        },\r\n        \"program\": {\r\n          \"localized\": {\r\n            \"en\": \"Computer Science\"\r\n          }\r\n        },\r\n        \"startMonthYear\": {\r\n          \"month\": 9,\r\n          \"year\": 2002\r\n        },\r\n        \"endMonthYear\": {\r\n          \"month\": 5,\r\n          \"year\": 2005\r\n        }\r\n      },\r\n      \"issuanceDate\": \"2020-03-01T19:03:23.001Z\",\r\n      \"credentialChecks\": {\r\n        \"TRUSTED_ISSUER\": \"PASS\",\r\n        \"UNEXPIRED\": \"NOT_APPLICABLE\",\r\n        \"UNREVOKED\": \"PASS\",\r\n        \"UNTAMPERED\": \"PASS\"\r\n      }\r\n    }\r\n  ],\r\n  \"rawCredentials\": [\r\n    {\r\n      \"id\": \"did:velocity:kyc007\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential99999999999\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkaWQ6dmVsb2NpdHk6MTIzMTI5M2kyMTMxMiIsIm5hbWUiOiJGcmVkIEFzdGFpciIsImlhdCI6MTUxNjgzOTAyMn0.hs_V0Fp0UFAy_TtbuBK9OS14O6OHE0c4fJ1pfg8po24\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:5555555555\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkaWQ6dmVsb2NpdHk6MTIzMTI5M2kyMTMxMiIsImlhdCI6MTUxNjgzOTAyMiwidmMiOnsiY3JlZGVudGlhbFN1YmplY3QiOnsiY29tcGFueSI6ImRpZDp2ZWxvY2l0eTppYW1hbmlzc3VlcjEyMzQ1Njc4OTAiLCJjb21wYW55TmFtZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJBQ01FIENvcnBvcmF0aW9uIn19LCJ0aXRsZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJQcm9qZWN0IE1hbmFnZXIifX0sInN0YXJ0TW9udGhZZWFyIjp7Im1vbnRoIjo4LCJ5ZWFyIjoyMDA5fSwiZW5kTW9udGhZZWFyIjp7Im1vbnRoIjoxLCJ5ZWFyIjoyMDE1fSwibG9jYXRpb24iOnsiY291bnRyeUNvZGUiOiJVUyIsInJlZ2lvbkNvZGUiOiJDQSJ9fX19.iDPkL6o1OzRO9L53Hg-t9sHBXjrY87hAWcTUEC3zc6Y\"\r\n    },\r\n    {\r\n      \"id\": \"did:velocity:credential:0000123456\",\r\n      \"rawCredential\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkaWQ6dmVsb2NpdHk6MTIzMTI5M2kyMTMxMiIsImlhdCI6MTUxNjgzOTAyMiwidmMiOnsiY3JlZGVudGlhbFN1YmplY3QiOnsic2Nob29sIjoiZGlkOnZlbG9jaXR5OmJhc2V1aXNzdWVyOTg3NjU0MzIwIiwic2Nob29sTmFtZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJCQVNFIFVuaXZlcml0eSJ9fSwiZGVncmVlTmFtZSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJCYWNoZWxvciJ9fSwicHJvZ3JhbSI6eyJsb2NhbGl6ZWQiOnsiZW4iOiJDb21wdXRlciBTY2llbmNlIn19LCJzdGFydE1vbnRoWWVhciI6eyJtb250aCI6OSwieWVhciI6MjAwMn0sImVuZE1vbnRoWWVhciI6eyJtb250aCI6NSwieWVhciI6MjAwNX19fX0.vtoxlyxrkGm3mSLRGI6PQdV4OK4z0x6MRt3kTkSPHmM\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/inspection/receive-checked-credentials",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"inspection",
+								"receive-checked-credentials"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/inspection/receive-checked-credentials",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"inspection",
+										"receive-checked-credentials"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "offers",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/offers/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{vendorUrl}}/api/offers/:id",
+											"host": [
+												"{{vendorUrl}}"
+											],
+											"path": [
+												"api",
+												"offers",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "default response",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/offers/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"offers",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/offers/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vendorUrl}}/api/offers/:id",
+											"host": [
+												"{{vendorUrl}}"
+											],
+											"path": [
+												"api",
+												"offers",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "default response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/offers/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"offers",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/offers/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{vendorUrl}}/api/offers/:id",
+											"host": [
+												"{{vendorUrl}}"
+											],
+											"path": [
+												"api",
+												"offers",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "default response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/offers/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"offers",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/offers",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"issuer\": {\n        \"vendorOrganizationId\": \"<string>\"\n    },\n    \"credentialSubject\": {\n        \"vendorUserId\": \"<string>\"\n    },\n    \"offerCreationDate\": \"<dateTime>\",\n    \"offerExpirationDate\": \"<dateTime>\",\n    \"offerId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"validUntil\": \"<dateTime>\"\n}"
+								},
+								"url": {
+									"raw": "{{vendorUrl}}/api/offers",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"offers"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"issuer\": {\n        \"vendorOrganizationId\": \"<string>\"\n    },\n    \"credentialSubject\": {\n        \"vendorUserId\": \"<string>\"\n    },\n    \"offerCreationDate\": \"<dateTime>\",\n    \"offerExpirationDate\": \"<dateTime>\",\n    \"offerId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"validUntil\": \"<dateTime>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/offers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"offers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/offers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{vendorUrl}}/api/offers",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"offers"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "default response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/offers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"offers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/issuing-exchanges",
+					"item": [
+						{
+							"name": "/api/issuing-exchanges",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{vendorUrl}}/api//issuing-exchanges?exchangeId=<string>&issuer=<string>&vendorUserId=<string>&date=<dateTime>&credentialTypes=<string>",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"",
+										"issuing-exchanges"
+									],
+									"query": [
+										{
+											"key": "exchangeId",
+											"value": "<string>"
+										},
+										{
+											"key": "issuer",
+											"value": "<string>"
+										},
+										{
+											"key": "vendorUserId",
+											"value": "<string>"
+										},
+										{
+											"key": "date",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "credentialTypes",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api//issuing-exchanges?exchangeId=<string>&issuer=<string>&vendorUserId=<string>&date=<dateTime>&credentialTypes=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"",
+												"issuing-exchanges"
+											],
+											"query": [
+												{
+													"key": "exchangeId",
+													"value": "<string>"
+												},
+												{
+													"key": "issuer",
+													"value": "<string>"
+												},
+												{
+													"key": "vendorUserId",
+													"value": "<string>"
+												},
+												{
+													"key": "date",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "credentialTypes",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/issuing-exchanges/:vendorOrganizationId/:exchangeId/push-offers",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": [\n        \"PastEmploymentPosition\"\n    ],\n    \"issuer\": {\n        \"vendorOrganizationId\": \"a0a3e076-8d23-4bcb-a066-6f90e161cf93\"\n    },\n    \"credentialSubject\": {\n        \"vendorUserId\": \"adam.smith@example.com\",\n        \"company\": \"did:velocity:0xd4df29726d500f9b85bc6c7f1b3c021f16305692\",\n        \"companyName\": {\n            \"localized\": {\n                \"en\": \"Microsoft Corporation\"\n            }\n        },\n        \"title\": {\n            \"localized\": {\n                \"en\": \"Director, Communications\"\n            }\n        },\n        \"startMonthYear\": {\n            \"month\": 1,\n            \"year\": 2010\n        },\n        \"endMonthYear\": {\n            \"month\": 12,\n            \"year\": 2020\n        },\n        \"location\": {\n            \"countryCode\": \"US\",\n            \"regionCode\": \"MA\"\n        },\n        \"alignment\": [\n            {\n                \"targetName\": \"Director, Communications\",\n                \"targetUrl\": \"https://microsoft.com\",\n                \"targetDescription\": \"l Data, AI, Hybrid, IoT, Datacenter, Mixed Reality/HoloLens, D365, Power Platform - all kinds of fun stuff!\"\n            }\n        ]\n    },\n    \"offerCreationDate\": \"2021-06-02T08:41:11.553Z\",\n    \"offerExpirationDate\": \"2021-06-27T11:41:11.553Z\",\n    \"offerId\": \"b9fd713f-7100-4913-bf80-a07a857hfhfhe2\"\n}"
+								},
+								"url": {
+									"raw": "{{vendorUrl}}/api/issuing-exchanges/:vendorOrganizationId/:exchangeId/push-offers",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"issuing-exchanges",
+										":vendorOrganizationId",
+										":exchangeId",
+										"push-offers"
+									],
+									"variable": [
+										{
+											"key": "vendorOrganizationId",
+											"value": "{vendorOrganizationId}"
+										},
+										{
+											"key": "exchangeId",
+											"value": "{exchangeId}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"issuer\": {\n        \"vendorOrganizationId\": \"<string>\"\n    },\n    \"credentialSubject\": {\n        \"vendorUserId\": \"<string>\"\n    },\n    \"offerCreationDate\": \"<dateTime>\",\n    \"offerExpirationDate\": \"<dateTime>\",\n    \"offerId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"validUntil\": \"<dateTime>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api//issuing-exchanges/:exchangeId/push-offers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"",
+												"issuing-exchanges",
+												":exchangeId",
+												"push-offers"
+											],
+											"variable": [
+												{
+													"key": "exchangeId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/issuing-exchanges/create-qrcode",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"type\": [\n      \"EducationDegree\"\n    ],\n    \"issuer\": {\n      \"vendorOrganizationId\": \"3e5182f1-e019-40cf-9544-c7ef485f7057\"\n    },\n    \"credentialSubject\": {\n      \"vendorUserId\": \"adam.smith@example.com\",\n      \"school\": \"did:velocity:0x0b154da48d0f213c26c4b1d040dc5ff1dbf99ffa\",\n      \"schoolName\": {\n        \"localized\": {\n          \"en\": \"University of Cambridge\"\n        }\n      },\n      \"degreeName\": {\n        \"localized\": {\n          \"en\": \"Bachelor\"\n        }\n      },\n      \"program\": {\n        \"localized\": {\n          \"en\": \"Computer Science\"\n        }\n      },\n      \"startMonthYear\": {\n        \"month\": 9,\n        \"year\": 2002\n      },\n      \"endMonthYear\": {\n        \"month\": 5,\n        \"year\": 2005\n      }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{vendorUrl}}/api/issuing-exchanges/create-qrcode",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"issuing-exchanges",
+										"create-qrcode"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"issuer\": {\n        \"vendorOrganizationId\": \"<string>\"\n    },\n    \"credentialSubject\": {\n        \"vendorUserId\": \"<string>\"\n    },\n    \"offerCreationDate\": \"<dateTime>\",\n    \"offerExpirationDate\": \"<dateTime>\",\n    \"offerId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"validUntil\": \"<dateTime>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api//issuing-exchanges/create-qrcode",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"",
+												"issuing-exchanges",
+												"create-qrcode"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/users/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vendorUrl}}/api/users/:id",
+											"host": [
+												"{{vendorUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "default response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/users/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{vendorUrl}}/api/users/:id",
+											"host": [
+												"{{vendorUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "default response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/users/:id",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{vendorUrl}}/api/users/:id",
+											"host": [
+												"{{vendorUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "default response",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{vendorUrl}}/api/users",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "default response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{vendorUrl}}/api/users",
+									"host": [
+										"{{vendorUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "default response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/api/applicants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vendorUrl}}/api/applicants",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"api",
+								"applicants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/applicants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"applicants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/api/credential-submissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vendorUrl}}/api/credential-submissions",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"api",
+								"credential-submissions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/credential-submissions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"credential-submissions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "issuing",
+			"item": [
+				{
+					"name": "/issuing/identify",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": {\n    \"localized\": {\n      \"en\": \"Adam\"\n    }\n  },\n  \"lastName\": {\n    \"localized\": {\n      \"en\": \"Smith\"\n    }\n  },\n  \"emails\": [\n    \"adam.smith@example.com\"\n  ],\n  \"phones\": [\n    \"+15556192191\"\n  ],\n  \"address\": {\n    \"line1\": \"400 Bell St\",\n    \"line2\": \"East Palo Alto\",\n    \"postcode\": \"94303\",\n    \"regionCode\": \"CA\",\n    \"countryCode\": \"US\"\n  },\n  \"tenantDID\": \"did:velocity:0x1321321312\",\n  \"exchangeId\": \"8c46438e-b6b8-11ea-b3de-0242ac130004\"\n}"
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/issuing/identify",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"issuing",
+								"identify"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Default Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorOrganizationId\": \"<string>\",\n    \"exchangeId\": \"<string>\",\n    \"firstName\": {\n        \"localized\": \"<object>\",\n        \"preferredLocale\": {\n            \"language\": \"<regex>\",\n            \"country\": \"<regex>\"\n        }\n    },\n    \"lastName\": {\n        \"localized\": \"<object>\",\n        \"preferredLocale\": {\n            \"language\": \"<regex>\",\n            \"country\": \"<regex>\"\n        }\n    },\n    \"middleNames\": {\n        \"localized\": \"<object>\",\n        \"preferredLocale\": {\n            \"language\": \"<regex>\",\n            \"country\": \"<regex>\"\n        }\n    },\n    \"address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"line3\": \"<string>\",\n        \"regionCode\": \"<regex>\",\n        \"countryCode\": \"<regex>\",\n        \"postcode\": \"<string>\"\n    },\n    \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"emails\": [\n        \"<email>\",\n        \"<email>\"\n    ],\n    \"phones\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"emailCredentials\": [\n        {\n            \"email\": \"<email>\",\n            \"credentialType\": \"<string>\",\n            \"issuer\": \"<string>\",\n            \"issued\": \"<dateTime>\",\n            \"validFrom\": \"<dateTime>\",\n            \"validUntil\": \"<dateTime>\"\n        },\n        {\n            \"email\": \"<email>\",\n            \"credentialType\": \"<string>\",\n            \"issuer\": \"<string>\",\n            \"issued\": \"<dateTime>\",\n            \"validFrom\": \"<dateTime>\",\n            \"validUntil\": \"<dateTime>\"\n        }\n    ],\n    \"phoneCredentials\": [\n        {\n            \"phone\": \"<string>\",\n            \"credentialType\": \"<string>\",\n            \"issuer\": \"<string>\",\n            \"issued\": \"<dateTime>\",\n            \"validFrom\": \"<dateTime>\",\n            \"validUntil\": \"<dateTime>\"\n        },\n        {\n            \"phone\": \"<string>\",\n            \"credentialType\": \"<string>\",\n            \"issuer\": \"<string>\",\n            \"issued\": \"<dateTime>\",\n            \"validFrom\": \"<dateTime>\",\n            \"validUntil\": \"<dateTime>\"\n        }\n    ],\n    \"idDocumentCredentials\": [\n        {\n            \"kind\": \"<string>\",\n            \"authority\": \"<string>\",\n            \"authorityId\": \"<string>\",\n            \"location\": {\n                \"value\": \"reference location# not found in the OpenAPI spec\"\n            },\n            \"identityNumber\": \"<string>\",\n            \"firstName\": {\n                \"value\": \"reference multilingual-string# not found in the OpenAPI spec\"\n            },\n            \"lastName\": {\n                \"value\": \"reference multilingual-string# not found in the OpenAPI spec\"\n            },\n            \"middleNames\": {\n                \"value\": \"reference multilingual-string# not found in the OpenAPI spec\"\n            },\n            \"address\": {\n                \"value\": \"reference address# not found in the OpenAPI spec\"\n            },\n            \"dob\": {\n                \"value\": \"reference date# not found in the OpenAPI spec\"\n            },\n            \"credentialType\": \"<string>\",\n            \"issuer\": \"<string>\",\n            \"issued\": \"<dateTime>\",\n            \"validFrom\": \"<dateTime>\",\n            \"validUntil\": \"<dateTime>\"\n        },\n        {\n            \"kind\": \"<string>\",\n            \"authority\": \"<string>\",\n            \"authorityId\": \"<string>\",\n            \"location\": {\n                \"value\": \"reference location# not found in the OpenAPI spec\"\n            },\n            \"identityNumber\": \"<string>\",\n            \"firstName\": {\n                \"value\": \"reference multilingual-string# not found in the OpenAPI spec\"\n            },\n            \"lastName\": {\n                \"value\": \"reference multilingual-string# not found in the OpenAPI spec\"\n            },\n            \"middleNames\": {\n                \"value\": \"reference multilingual-string# not found in the OpenAPI spec\"\n            },\n            \"address\": {\n                \"value\": \"reference address# not found in the OpenAPI spec\"\n            },\n            \"dob\": {\n                \"value\": \"reference date# not found in the OpenAPI spec\"\n            },\n            \"credentialType\": \"<string>\",\n            \"issuer\": \"<string>\",\n            \"issued\": \"<dateTime>\",\n            \"validFrom\": \"<dateTime>\",\n            \"validUntil\": \"<dateTime>\"\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/issuing/identify",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"issuing",
+										"identify"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/issuing/generate-offers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vendorUserId\": \"adam.smith@example.com\",\n  \"tenantDID\": \"did:velocity:0xd4df29726d500f9b85bc6c7f1b3c021f16305692\",\n  \"types\": [\n    \"CurrentEmploymentPosition\",\n    \"PastEmploymentPosition\"\n  ],\n  \"exchangeId\": \"cf7319da-b6b7-11ea-b3de-0242ac130004\"\n}"
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/issuing/generate-offers",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"issuing",
+								"generate-offers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"types\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"vendorUserId\": \"<string>\",\n    \"vendorOrganizationId\": \"<string>\",\n    \"exchangeId\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/issuing/generate-offers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"issuing",
+										"generate-offers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"offers\": [\n  {\n   \"type\": [\n    \"<string>\",\n    \"<string>\"\n   ],\n   \"issuer\": {\n    \"vendorOrganizationId\": \"<string>\"\n   },\n   \"credentialSubject\": {\n    \"vendorUserId\": \"<string>\"\n   },\n   \"offerCreationDate\": \"<dateTime>\",\n   \"offerExpirationDate\": \"<dateTime>\",\n   \"offerId\": \"<string>\",\n   \"expirationDate\": \"<dateTime>\",\n   \"validUntil\": \"<dateTime>\"\n  },\n  {\n   \"type\": [\n    \"<string>\",\n    \"<string>\"\n   ],\n   \"issuer\": {\n    \"vendorOrganizationId\": \"<string>\"\n   },\n   \"credentialSubject\": {\n    \"vendorUserId\": \"<string>\"\n   },\n   \"offerCreationDate\": \"<dateTime>\",\n   \"offerExpirationDate\": \"<dateTime>\",\n   \"offerId\": \"<string>\",\n   \"expirationDate\": \"<dateTime>\",\n   \"validUntil\": \"<dateTime>\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/issuing/receive-accepted-offers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tenantDID\": \"did:velocity:0xd4df29726d500f9b85bc6c7f1b3c021f16305692\",\n    \"exchangeId\": \"cf7319da-b6b7-11ea-b3de-0242ac130004\",\n    \"vendorOfferIds\": [ \"60cc4cafc2361a84f05188e0\" ]\n}"
+						},
+						"url": {
+							"raw": "{{vendorUrl}}/issuing/receive-accepted-offers",
+							"host": [
+								"{{vendorUrl}}"
+							],
+							"path": [
+								"issuing",
+								"receive-accepted-offers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"types\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"vendorUserId\": \"<string>\",\n    \"vendorOrganizationId\": \"<string>\",\n    \"exchangeId\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/issuing/generate-offers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"issuing",
+										"generate-offers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"offers\": [\n  {\n   \"type\": [\n    \"<string>\",\n    \"<string>\"\n   ],\n   \"issuer\": {\n    \"vendorOrganizationId\": \"<string>\"\n   },\n   \"credentialSubject\": {\n    \"vendorUserId\": \"<string>\"\n   },\n   \"offerCreationDate\": \"<dateTime>\",\n   \"offerExpirationDate\": \"<dateTime>\",\n   \"offerId\": \"<string>\",\n   \"expirationDate\": \"<dateTime>\",\n   \"validUntil\": \"<dateTime>\"\n  },\n  {\n   \"type\": [\n    \"<string>\",\n    \"<string>\"\n   ],\n   \"issuer\": {\n    \"vendorOrganizationId\": \"<string>\"\n   },\n   \"credentialSubject\": {\n    \"vendorUserId\": \"<string>\"\n   },\n   \"offerCreationDate\": \"<dateTime>\",\n   \"offerExpirationDate\": \"<dateTime>\",\n   \"offerId\": \"<string>\",\n   \"expirationDate\": \"<dateTime>\",\n   \"validUntil\": \"<dateTime>\"\n  }\n ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/Welcome to Mockvendor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{vendorUrl}}/",
+					"host": [
+						"{{vendorUrl}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "default response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "/test-integration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{vendorUrl}}/test-integration",
+					"host": [
+						"{{vendorUrl}}"
+					],
+					"path": [
+						"test-integration"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "default response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/test-integration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"test-integration"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1/"
+		}
+	]
+}

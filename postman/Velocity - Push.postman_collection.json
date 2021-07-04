@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "360a4d4b-c326-4cae-a5d2-7055c82f9afc",
+		"name": "Velocity / Push",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JWTs",
+			"item": [
+				{
+					"name": "Decode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jwt\":\"eyJ0eXAiOiJKV1QiLCJqd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwieCI6IlFKenYyMVRhNDBLT19MNnV4TzFUZTR0NHJHMTVLZkdvTk5SMFg2eEFvU1UiLCJ5IjoiSkpQLXkxUDBqTEsyYWh0MzJ4Z3R2WHdWMVIyd0tybGdUR0MzYnhjcVVFayIsImt0eSI6IkVDIiwia2lkIjoiM0RzTnczZXdFUUlEQ0tyUHIzN1NBQW9Za255MVdLRzJHNGpFQVNWbzVHayIsImFsZyI6IkVTMjU2SyIsInVzZSI6InNpZyJ9LCJhbGciOiJFUzI1NksifQ.eyJmaWVsZDEiOiJ2YWx1ZTEiLCJpYXQiOjE2MTg4MTkyMzgsIm5iZiI6MTYxODgxOTIzOH0._FuNcRylGSKYzOeInpGA0IghXU2Reo9cSvLm5n1EJ9rzamHX4Zw7nm-V_UYEpiqLnUrAeByuVVS7MBjZp13-cQ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jwt/decode",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jwt",
+								"decode"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Decode  JWT Example 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jwt\":\"eyJ0eXAiOiJKV1QiLCJqd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwieCI6IlFKenYyMVRhNDBLT19MNnV4TzFUZTR0NHJHMTVLZkdvTk5SMFg2eEFvU1UiLCJ5IjoiSkpQLXkxUDBqTEsyYWh0MzJ4Z3R2WHdWMVIyd0tybGdUR0MzYnhjcVVFayIsImt0eSI6IkVDIiwia2lkIjoiM0RzTnczZXdFUUlEQ0tyUHIzN1NBQW9Za255MVdLRzJHNGpFQVNWbzVHayIsImFsZyI6IkVTMjU2SyIsInVzZSI6InNpZyJ9LCJhbGciOiJFUzI1NksifQ.eyJmaWVsZDEiOiJ2YWx1ZTEiLCJpYXQiOjE2MTg4MTkyMzgsIm5iZiI6MTYxODgxOTIzOH0._FuNcRylGSKYzOeInpGA0IghXU2Reo9cSvLm5n1EJ9rzamHX4Zw7nm-V_UYEpiqLnUrAeByuVVS7MBjZp13-cQ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/jwt/decode",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jwt",
+										"decode"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data: validator.swagger.io;object-src 'none';script-src 'self' 'sha256-2yQBTLGLI1sDcBILfj/o6b5ufMv6CEwPYOk3RZI/WjE=' 'sha256-GeDavzSZ8O71Jggf/pQkKbt52dfZkrdNMQ3e+Ox+AkI=';script-src-attr 'none';style-src 'self' https: 'sha256-pyVPiLlnqL9OWVoJPs/E6VVF5hBecRzM2gBiarnaqAo=';upgrade-insecure-requests;form-action 'self'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "319"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Apr 2021 08:27:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"payload\": {\n        \"field1\": \"value1\",\n        \"iat\": 1618819238,\n        \"nbf\": 1618819238\n    },\n    \"header\": {\n        \"typ\": \"JWT\",\n        \"jwk\": {\n            \"crv\": \"secp256k1\",\n            \"x\": \"QJzv21Ta40KO_L6uxO1Te4t4rG15KfGoNNR0X6xAoSU\",\n            \"y\": \"JJP-y1P0jLK2aht32xgtvXwV1R2wKrlgTGC3bxcqUEk\",\n            \"kty\": \"EC\",\n            \"kid\": \"3DsNw3ewEQIDCKrPr37SAAoYkny1WKG2G4jEASVo5Gk\",\n            \"alg\": \"ES256K\",\n            \"use\": \"sig\"\n        },\n        \"alg\": \"ES256K\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jwt\": \"eyJhbGciOiJFUzI1NksiLCJraWQiOiI2RFU5YTE0U0phLVZ1aEFrZktDX2huUHgwNHFDZERUZnE3QWF2OVpoWVBrIn0.eyJmaWVsZDEiOiJ2YWx1ZTEiLCJpYXQiOjE2MjE5MzYzMTZ9.MY5j9M6q8joB9SzSBpG6wuNfD0GC31eXvLQVULxJXqbKztTjmdK-icrPQTeR0VlEkm7QQfl3oauqm6uDObWoww\",\n    \"publicKey\": {\n        \"alg\": \"ES256K\",\n        \"crv\": \"secp256k1\",\n        \"kid\": \"6DU9a14SJa-VuhAkfKC_hnPx04qCdDTfq7Aav9ZhYPk\",\n        \"kty\": \"EC\",\n        \"use\": \"sig\",\n        \"x\": \"CwzSN-I89zqeSd_-c38e2KlxI94p-qYYbqR-mtJVcYI\",\n        \"y\": \"xTuq_dRTmazUCcpK4AhYCE1TsLDJbSZtqymCEuYDYa4\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jwt/verify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jwt",
+								"verify"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Verify JWT Example 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jwt\": \"eyJhbGciOiJFUzI1NksiLCJraWQiOiI2RFU5YTE0U0phLVZ1aEFrZktDX2huUHgwNHFDZERUZnE3QWF2OVpoWVBrIn0.eyJmaWVsZDEiOiJ2YWx1ZTEiLCJpYXQiOjE2MjE5MzYzMTZ9.MY5j9M6q8joB9SzSBpG6wuNfD0GC31eXvLQVULxJXqbKztTjmdK-icrPQTeR0VlEkm7QQfl3oauqm6uDObWoww\",\n    \"publicKey\": {\n        \"alg\": \"ES256K\",\n        \"crv\": \"secp256k1\",\n        \"kid\": \"6DU9a14SJa-VuhAkfKC_hnPx04qCdDTfq7Aav9ZhYPk\",\n        \"kty\": \"EC\",\n        \"use\": \"sig\",\n        \"x\": \"CwzSN-I89zqeSd_-c38e2KlxI94p-qYYbqR-mtJVcYI\",\n        \"y\": \"xTuq_dRTmazUCcpK4AhYCE1TsLDJbSZtqymCEuYDYa4\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/jwt/verify",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jwt",
+										"verify"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data: validator.swagger.io;object-src 'none';script-src 'self' 'sha256-2yQBTLGLI1sDcBILfj/o6b5ufMv6CEwPYOk3RZI/WjE=' 'sha256-GeDavzSZ8O71Jggf/pQkKbt52dfZkrdNMQ3e+Ox+AkI=';script-src-attr 'none';style-src 'self' https: 'sha256-pyVPiLlnqL9OWVoJPs/E6VVF5hBecRzM2gBiarnaqAo=';upgrade-insecure-requests;form-action 'self'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "17"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 May 2021 10:00:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"verified\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payload\": {\n        \"field1\": \"value1\"\n    },\n    \"options\": {\n        \"issuer\": \"IUvZ0-oLW9R0y0cq6rtzm\",\n        \"audience\": \"e_VrUhAUGEj7MmNziKfCm\",\n        \"subject\": \"S2sWFQhELscHaAAPeWPCW\",\n        \"expiresIn\": \"P0Y0M7DT0H0M0S\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jwt/sign",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jwt",
+								"sign"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign JWT Example 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payload\": {\n        \"field1\": \"value1\"\n    },\n    \"options\": {\n        \"issuer\": \"IUvZ0-oLW9R0y0cq6rtzm\",\n        \"audience\": \"e_VrUhAUGEj7MmNziKfCm\",\n        \"subject\": \"S2sWFQhELscHaAAPeWPCW\",\n        \"expiresIn\": \"P0Y0M7DT0H0M0S\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/jwt/sign",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jwt",
+										"sign"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data: validator.swagger.io;object-src 'none';script-src 'self' 'sha256-2yQBTLGLI1sDcBILfj/o6b5ufMv6CEwPYOk3RZI/WjE=' 'sha256-GeDavzSZ8O71Jggf/pQkKbt52dfZkrdNMQ3e+Ox+AkI=';script-src-attr 'none';style-src 'self' https: 'sha256-pyVPiLlnqL9OWVoJPs/E6VVF5hBecRzM2gBiarnaqAo=';upgrade-insecure-requests;form-action 'self'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "698"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Apr 2021 08:27:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwt\": \"eyJ0eXAiOiJKV1QiLCJqd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwieCI6InMyZ3huMG0xcXZlanVDanRtRktjZ1dFc0s5Nnh4NG5EN1RmVXJZVnZpX1EiLCJ5IjoiRm9NNERob2c4NTZCMUxKemg4d2twbkFFTFlGX3VwSHdhUDZ1UXNwWkIwcyIsImt0eSI6IkVDIiwia2lkIjoiM0xnNjlWYUFUa1JueVUyVjZFbnU5eW9XdnFadjlWLUF4M0VMcFJTc0JQMCIsImFsZyI6IkVTMjU2SyIsInVzZSI6InNpZyJ9LCJhbGciOiJFUzI1NksifQ.eyJmaWVsZDEiOiJ2YWx1ZTEiLCJzdWIiOiJTMnNXRlFoRUxzY0hhQUFQZVdQQ1ciLCJhdWQiOiJlX1ZyVWhBVUdFajdNbU56aUtmQ20iLCJpc3MiOiJJVXZaMC1vTFc5UjB5MGNxNnJ0em0iLCJqdGkiOiJmOGE3MTBiNy05YjZhLTQ4ZGUtOGJhMS0zMTY1OGIwMzc0ZmYiLCJpYXQiOjE2MTg4MjA4NzMsImV4cCI6MTYxOTQyNTY3MywibmJmIjoxNjE4ODIwODczfQ.nxlH0fFtbRkx8jZAtkti8CrCXRAj4_36pI8t9nUTrhU4chgGQosoYJYkxPvHuPMPuH4wRDZVDJjHxGE9noS5Lg\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Push: Generate random push",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pushToken\": \"<string>\",\n    \"content\": {\n        \"messageParams\": {\n              \"priority\": \"<string>\",\n              \"timeToLeave\": \"<integer>\"\n            },\n            \"data\": {\n              \"type\": \"<object>\"\n            },\n            \"notification\": {\n              \"type\": \"<object>\",\n              \"properties\": {\n                \"title\": \"<string>\",\n                \"body\": \"<string>\",\n                \"image\":\"<string>\"\n              }\n            }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/push/generate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"push",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
