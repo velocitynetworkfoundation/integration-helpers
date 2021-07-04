@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "fb4b4e85-056d-40b9-bed2-2130290d0a36",
+		"name": "Velocity / Registrar / Device",
+		"description": "Testing the swagger api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Devices: Get A Device By Device Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.EoDg_46Qi28tScPD5xwHW4TCdEtN8-gzYoAgFa34fCQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/devices/:deviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"devices",
+						":deviceId"
+					],
+					"variable": [
+						{
+							"key": "deviceId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Devices: Get Pushed By Device",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/devices/:deviceId/pushes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"devices",
+						":deviceId",
+						"pushes"
+					],
+					"query": [
+						{
+							"key": "pushSeqId",
+							"value": "60dc5d4390154e7139d933a0",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "deviceId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Devices: Get All Registered Devices",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.EoDg_46Qi28tScPD5xwHW4TCdEtN8-gzYoAgFa34fCQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/devices",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"devices"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Devices: Register Device",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"deviceId\": \"<string>\",\n        \"deviceType\": \"<string>\",\n        \"deviceOS\": \"<string>\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/devices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"devices"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Devices: Delete a Device by Push Token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/devices/:pushToken",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"devices",
+						":pushToken"
+					],
+					"variable": [
+						{
+							"key": "pushToken",
+							"value": "{pushToken}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did/services/:serviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did",
+								"services",
+								":serviceId"
+							],
+							"variable": [
+								{
+									"key": "did"
+								},
+								{
+									"key": "serviceId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.vssTp--KThrqP0-E7BOpXfTneXmQUYcv0elKAcXhAVg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://stagingservices.velocitycareerlabs.io"
+		},
+		{
+			"key": "did",
+			"value": "did:ethr:example"
+		},
+		{
+			"key": "serviceIdFragment",
+			"value": "credential-agent-issuer-1"
+		}
+	]
+}
