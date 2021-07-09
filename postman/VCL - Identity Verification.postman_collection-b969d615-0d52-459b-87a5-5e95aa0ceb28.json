@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "30dcc11f-059a-4706-8056-43404fa89fcb",
+		"name": "VCL / Identity Verification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Tenant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vendorOrganizationId\": \"a0f96f12-1843-11eb-adc1-0242ac120002\",\r\n  \"did\": \"did:ethr:0x7e10946b19f34ffee5f44aee34a8fc2914590670\",\r\n  \"logo\": \"http://localhost\",\r\n  \"name\": \"VCL Identity Verification\",\r\n  \"credentialTypesIssued\": [\r\n    \"TYPE\"\r\n  ],\r\n  \"services\": [\r\n    \"ISSUE\"\r\n  ],\r\n  \"kid\": \"did:ethr:0x7e10946b19f34ffee5f44aee34a8fc2914590670#key-1\",\r\n  \"key\": \"52896a9936689229f91caf830ab122a76d3cfe2c7e6a50abcaded5d07f08054c\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{agentHostUrl}}/api/vendor/v0.6/vendorOrganizations",
+					"protocol": "http",
+					"host": [
+						"{{agentHostUrl}}"
+					],
+					"path": [
+						"api",
+						"vendor",
+						"v0.6",
+						"vendorOrganizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SES Verify Domain",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "service",
+							"value": "ses",
+							"type": "string"
+						},
+						{
+							"key": "region",
+							"value": "AAA",
+							"type": "string"
+						},
+						{
+							"key": "addAuthDataToQuery",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "secretKey",
+							"value": "AAA",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "AAA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Action",
+							"value": "VerifyDomainIdentity",
+							"type": "text"
+						},
+						{
+							"key": "Version",
+							"value": "2010-12-01",
+							"type": "text"
+						},
+						{
+							"key": "Domain",
+							"value": "example.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4566/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4566",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Verification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\": \"test@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{verificationHostUrl}}/api/v0.6/verify/email/request-code",
+					"protocol": "http",
+					"host": [
+						"{{verificationHostUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"verify",
+						"email",
+						"request-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Complete Verification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"verificationCode\": \"{{verificationCode}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{verificationHostUrl}}/api/v0.6/verify/confirm",
+					"protocol": "http",
+					"host": [
+						"{{verificationHostUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"verify",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Issuing Exchange",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"ISSUING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{agentHostUrl}}/api/holder/v0.6/org/{{did}}/exchange",
+					"protocol": "http",
+					"host": [
+						"{{agentHostUrl}}"
+					],
+					"path": [
+						"api",
+						"holder",
+						"v0.6",
+						"org",
+						"{{did}}",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Identify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"exchangeId\": \"5f9810f8cb23e501079d6aea\",\n\t\"presentation\": \"{{verificationPresentation}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{agentHostUrl}}/api/holder/v0.6/org/{{did}}/identify",
+					"protocol": "http",
+					"host": [
+						"{{agentHostUrl}}"
+					],
+					"path": [
+						"api",
+						"holder",
+						"v0.6",
+						"org",
+						"{{did}}",
+						"identify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Credential Offers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{identificationToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"types\": [\"EmailAddressVerification\",\"PhoneNumberVerification\"],\n\t\"exchangeId\": \"5f9810f8cb23e501079d6aea\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{agentHostUrl}}/api/holder/v0.6/org/{{did}}/issue/credential-offers",
+					"protocol": "http",
+					"host": [
+						"{{agentHostUrl}}"
+					],
+					"path": [
+						"api",
+						"holder",
+						"v0.6",
+						"org",
+						"{{did}}",
+						"issue",
+						"credential-offers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2d4b9ae9-feda-4167-93de-c614691251fe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "22dcb6a6-bbda-438c-b2ea-2329a82b3416",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ce27fcb2-c331-463c-ba32-fba8ed40693d",
+			"key": "verificationHostUrl",
+			"value": "127.0.0.1:3002"
+		},
+		{
+			"id": "bc4b8053-8e19-4ae4-92ff-d377c0d5e572",
+			"key": "verificationCode",
+			"value": "uQCjwt"
+		},
+		{
+			"id": "37850f48-bbc1-43eb-8812-5742c30fc0a1",
+			"key": "verificationPresentation",
+			"value": "eyJ0eXAiOiJKV1QiLCJqd2siOnsia3R5IjoiRUMiLCJjcnYiOiJzZWNwMjU2azEiLCJ4Ijoidmt5bVZZbXlPUmJQU1VjTFZna0VOVk5ROWZPQTJScTFVTE1KSHljWU9WWT0iLCJ5IjoiV0JiY1pjZmNYc2tVZER0aVBpSWZBQUdjVEVvNEhNQS9helB5YjJrWEI4TT0ifSwiYWxnIjoiRVMyNTZLIn0.eyJ2ZXJpZmlhYmxlQ3JlZGVudGlhbCI6WyJleUowZVhBaU9pSktWMVFpTENKcWQyc2lPbnNpYTNSNUlqb2lSVU1pTENKamNuWWlPaUp6WldOd01qVTJhekVpTENKNElqb2lkbXQ1YlZaWmJYbFBVbUpRVTFWalRGWm5hMFZPVms1Uk9XWlBRVEpTY1RGVlRFMUtTSGxqV1U5V1dUMGlMQ0o1SWpvaVYwSmlZMXBqWm1OWWMydFZaRVIwYVZCcFNXWkJRVWRqVkVWdk5FaE5RUzloZWxCNVlqSnJXRUk0VFQwaWZTd2lZV3huSWpvaVJWTXlOVFpMSW4wLmV5SjJZeUk2ZXlKMGVYQmxJam9pU1dSbGJuUnBkSGxCYm1SRGIyNTBZV04wSWl3aVkzSmxaR1Z1ZEdsaGJGTjFZbXBsWTNRaU9uc2lhV1FpT2lKaVpEUm1NV1UwT0MwMlpEZGhMVFE0TnpZdFlXVmhZaTB3WkRJME9UVTFORFV3WmpnaWZYMHNJbWx6Y3lJNkltUnBaRHBsZEdoeU9qQjRZek13WWpZNU5EQTFNak00TURNNE1EZ3dZelkwTVdOak1qQmhOak0zTVRWallUazNaRGN3TmlJc0ltbGhkQ0k2TVRZd016YzVPRGN6TlgwLnU5Y1QzTE8tM2lJVjFIVjdHa0hpc2swLUZxdm82OWFseGpUVWh6OS1rSmVNYWs1YnpRREQxTVdqcFpTd1NyWVl5VU04ZkdsaTZocnNaeW0wTnlVdUdRIl0sImlzcyI6ImRpZDpldGhyOjB4YzMwYjY5NDA1MjM4MDM4MDgwYzY0MWNjMjBhNjM3MTVjYTk3ZDcwNiIsImlhdCI6MTYwMzc5ODczNX0.2o1Y99JE0N9HnxBiQUcGbq9os9L0sEf0YA3yFnFfyKAPZ14L5PgPAERSqIxqDNyk21hLAZ3BlPqGu0YDRjlDRA"
+		},
+		{
+			"id": "962d2075-a4ad-4a8b-80c7-045074ff0ad2",
+			"key": "agentHostUrl",
+			"value": "127.0.0.1:3006"
+		},
+		{
+			"id": "cd6a3686-1078-4b03-bf33-1ca007bfd78f",
+			"key": "did",
+			"value": "did:ethr:0x7e10946b19f34ffee5f44aee34a8fc2914590670"
+		},
+		{
+			"id": "60ca90c8-74dd-4a36-89f4-0509e4458ef0",
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.vssTp--KThrqP0-E7BOpXfTneXmQUYcv0elKAcXhAVg"
+		},
+		{
+			"id": "2f44d50d-caed-4c5e-b6be-1721a8950211",
+			"key": "identificationToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjk4MDZlOGM5ZmRiOWU0M2M5MGY5NzkiLCJpYXQiOjE2MDM4MDEzNTd9.cOQUVHlOV9YHcL3p2K4VcNZema0UkUQdiqGLYqNVj0A"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
