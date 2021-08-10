@@ -7,7 +7,97 @@
 	},
 	"item": [
 		{
-			"name": "Orgs: Get All Organization DID Docs",
+			"name": "Public: Search Profiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/search-profiles?filter.serviceTypes=Issuer&page.skip=0&page.size=50&q",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"search-profiles"
+					],
+					"query": [
+						{
+							"key": "filter.serviceTypes",
+							"value": "Issuer",
+							"description": "Issuer, Inspector or NotaryIssuer comma separated"
+						},
+						{
+							"key": "filter.credentialTypes",
+							"value": null,
+							"description": "Any valid credential type. Multiple comma separated",
+							"disabled": true
+						},
+						{
+							"key": "filter.did",
+							"value": null,
+							"description": "Any valid did. Multiple comma separated",
+							"disabled": true
+						},
+						{
+							"key": "page.skip",
+							"value": "0",
+							"description": "Paging skip value"
+						},
+						{
+							"key": "page.size",
+							"value": "50",
+							"description": "Paging size value"
+						},
+						{
+							"key": "q",
+							"value": null,
+							"description": "Free text search on profile.name"
+						},
+						{
+							"key": "sort",
+							"value": null,
+							"description": "Sort is a tuple ['profile.name', 'ASC'|'DESC']. Multiple comma separated. ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Get All Organizations",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -56,7 +146,7 @@
 			]
 		},
 		{
-			"name": "Orgs: Create Organziation DID Doc",
+			"name": "Orgs: Create Custodied Organziation",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -118,12 +208,12 @@
 			]
 		},
 		{
-			"name": "Orgs: Get Issuer DID Docs by Credential Type Issued",
+			"name": "Orgs: Get Organziation DID Doc & Profile",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations/issuers?type=:type",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -131,12 +221,12 @@
 						"api",
 						"v0.6",
 						"organizations",
-						"issuers"
+						":did"
 					],
-					"query": [
+					"variable": [
 						{
-							"key": "type",
-							"value": "CurrentEmploymentPosition"
+							"key": "did",
+							"value": "did:velocity:0x6a6998b466fd38470a7e074b8fe33768be7d8f4b"
 						}
 					]
 				}
@@ -148,7 +238,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/v0.6/organizations/issuers",
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -156,7 +246,12 @@
 								"api",
 								"v0.6",
 								"organizations",
-								"issuers"
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
 							]
 						}
 					},
@@ -175,9 +270,9 @@
 			]
 		},
 		{
-			"name": "Orgs: Get Organziation DID Doc",
+			"name": "Orgs: Delete Organization DID/DID Doc",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
@@ -242,7 +337,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"string\",\n    \"logo\": \"https://example.com/logo.png\",\n    \"location\": {\n        \"countryCode\": \"US\",\n        \"regionCode\": \"CA\"\n    },\n    \"founded\": {\n        \"year\": 1981\n    }\n}"
+					"raw": "{\n                \"name\": \"Korn Ferry\",\n                \"location\": {\n                    \"countryCode\": \"US\",\n                    \"regionCode\": \"CA\"\n                },\n                \"founded\": {\n                    \"year\": 1969\n                },\n                \"logo\": \"https://kornferry.papirfly.co.uk/readimage.aspx/asset.png?pubid=-lhz6gIrZLUvl5Dsouz4lA\",\n                \"website\": \"https://www.kornferry.com/\"\n            }"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
@@ -369,7 +464,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"serviceEndpoint\":\"http://testagent.velocitycareerlabs.io\",\n    \"id\":\"velocity-credential-agent-issuer-3\",\n    \"type\":\"VelocityCredentialAgentIssuer_v1.0\",\n    \"credentialTypes\": [\"CurrentEmploymentPosition\"]\n}"
+					"raw": "{\n            \"serviceEndpoint\": \"https://velocityapidev.cisive.com\",\n            \"id\": \"did:ethr:0xfbad8ef7229cd10bac06935e53c5841da1d33fc1#velocity-credential-agent-issuer-1\",\n            \"type\": \"VelocityCredentialAgentIssuer_v1.0\",\n                \"credentialTypes\": [\n                    \"PastEmploymentPosition\",\n                    \"CurrentEmploymentPosition\",\n                    \"EducationDegree\"\n                ]\n        }"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services",
@@ -503,7 +598,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+					"raw": "{\n    \"serviceEndpoint\": \"http://velocity.sumtotaldevelopment.net\",\n    \"id\": \"did:ethr:0x9568a77fcb683289e109dbb138d73ab660d778ed#velocity-credential-agent-inspector-1\",\n    \"type\": \"VelocityCredentialAgentInspector_v1.0\"\n}"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
@@ -629,6 +724,63 @@
 					"body": ""
 				}
 			]
+		},
+		{
+			"name": "DEPRECATED Orgs: Get Issuer DID Docs by Credential Type Issued",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/issuers?type=PastEmploymentPosition",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"issuers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "PastEmploymentPosition"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/issuers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								"issuers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		}
 	],
 	"auth": {
@@ -636,7 +788,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.vssTp--KThrqP0-E7BOpXfTneXmQUYcv0elKAcXhAVg",
+				"value": "{{authToken}}",
 				"type": "string"
 			}
 		]
@@ -645,7 +797,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d6819b7a-f4ad-4863-b3bb-9a75a0ea80fb",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -655,7 +806,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "335a4fb5-8d9b-4e3e-bb43-a4f03c2836a3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -665,20 +815,16 @@
 	],
 	"variable": [
 		{
-			"id": "e98e810b-aec4-488c-98b9-6391904cfcce",
 			"key": "baseUrl",
 			"value": "https://stagingservices.velocitycareerlabs.io"
 		},
 		{
-			"id": "1a4c9359-29ea-43ad-8d42-12dab3d233d5",
 			"key": "did",
 			"value": "did:ethr:example"
 		},
 		{
-			"id": "484f5f48-c332-4f46-b4d5-6f62f5c231ee",
 			"key": "serviceIdFragment",
 			"value": "credential-agent-issuer-1"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
