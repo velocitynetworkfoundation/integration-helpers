@@ -1,25 +1,66 @@
 {
 	"info": {
-		"_postman_id": "af452bd8-86fd-48a0-98cb-1d4e5849df91",
+		"_postman_id": "d58a58b7-6292-4670-92e6-085b986a55db",
 		"name": "Velocity / Registrar / Organizations",
 		"description": "Testing the swagger api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Orgs: Get All Organization DID Docs",
+			"name": "Public: Search Profiles",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/search-profiles?filter.serviceTypes=Issuer&page.skip=0&page.size=50&q",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"v0.6",
-						"organizations"
+						"organizations",
+						"search-profiles"
+					],
+					"query": [
+						{
+							"key": "filter.serviceTypes",
+							"value": "Issuer",
+							"description": "Issuer, Inspector or NotaryIssuer comma separated"
+						},
+						{
+							"key": "filter.credentialTypes",
+							"value": null,
+							"description": "Any valid credential type. Multiple comma separated",
+							"disabled": true
+						},
+						{
+							"key": "filter.did",
+							"value": null,
+							"description": "Any valid did. Multiple comma separated",
+							"disabled": true
+						},
+						{
+							"key": "page.skip",
+							"value": "0",
+							"description": "Paging skip value"
+						},
+						{
+							"key": "page.size",
+							"value": "50",
+							"description": "Paging size value"
+						},
+						{
+							"key": "q",
+							"value": null,
+							"description": "Free text search on profile.name"
+						},
+						{
+							"key": "sort",
+							"value": null,
+							"description": "Sort is a tuple ['profile.name', 'ASC'|'DESC']. Multiple comma separated. ",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -56,7 +97,28 @@
 			]
 		},
 		{
-			"name": "Orgs: Create Organziation DID Doc",
+			"name": "Public: Get Organization Verified Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/verified-profile",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}",
+						"verified-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orgs: Create Custodied Full Organziation",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -67,17 +129,189 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
+					"raw": "{\n    \"profile\": {\n        \"name\": \"ABC Health Services\",\n        \"logo\": \"https://docs.velocitycareerlabs.io/Logos/MCB.png\",\n        \"location\": {\n            \"countryCode\": \"US\",\n            \"regionCode\": \"NY\"\n        },\n        \"website\":\"https://www.abchealth.com\",\n        \"contactEmail\":\"velocity@abchealth.com\",\n        \"founded\": \"1965-01-01\",\n        \"closed\": \"2020-01-01\",\n        \"registrationNumbers\": [\n          {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1\",\n            \"uri\": \"uri://uri\"\n          }\n        ],\n        \"permittedVelocityServiceCategories\":[\n            \"Issuer\"\n        ]\n    },\n\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"#velocity-issuer-1\",\n            \"type\": \"VelocityCredentialAgentIssuer_v1.0\",\n            \"credentialTypes\": [\n                \"PastEmploymentPosition\"\n            ],\n            \"serviceEndpoint\": \"https://devagent.velocitycareerlabs.io\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/full",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"v0.6",
-						"organizations"
+						"organizations",
+						"full"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 Example 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\": {\n        \"name\": \"ABC Health Services\",\n        \"logo\": \"https://docs.velocitycareerlabs.io/Logos/MCB.png\",\n        \"location\": {\n            \"countryCode\": \"US\",\n            \"regionCode\": \"NY\"\n        },\n        \"website\":\"https://www.abchealth.com\",\n        \"contactEmail\":\"velocity@abchealth.com\",\n        \"founded\": \"1965-01-01\",\n        \"closed\": \"2020-01-01\",\n        \"registrationNumbers\": [\n          {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1\",\n            \"uri\": \"uri://uri\"\n          }\n        ],\n        \"permittedVelocityServiceCategories\":[\n            \"Issuer\"\n        ]\n    },\n\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"#velocity-issuer-1\",\n            \"type\": \"VelocityCredentialAgentIssuer_v1.0\",\n            \"credentialTypes\": [\n                \"PastEmploymentPosition\"\n            ],\n            \"serviceEndpoint\": \"https://devagent.velocitycareerlabs.io\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/full",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								"full"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 19 Aug 2021 23:03:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2080"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-security-policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data: validator.swagger.io;object-src 'none';script-src 'self' 'sha256-2yQBTLGLI1sDcBILfj/o6b5ufMv6CEwPYOk3RZI/WjE=' 'sha256-GeDavzSZ8O71Jggf/pQkKbt52dfZkrdNMQ3e+Ox+AkI=';script-src-attr 'none';style-src 'self' https: 'sha256-pyVPiLlnqL9OWVoJPs/E6VVF5hBecRzM2gBiarnaqAo=';upgrade-insecure-requests;form-action 'self'"
+						},
+						{
+							"key": "x-dns-prefetch-control",
+							"value": "off"
+						},
+						{
+							"key": "expect-ct",
+							"value": "max-age=0"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=dThGsn%2FUXS%2FHtMB3ULCsiPdN7CX%2BwKD%2FK4IaSSYbur6L0UFPLowRXwabPLDSq0QqY1NR1LXKjXvUiwYjuXrRpEEgcTKioKIhKIzaV%2FBNzg9ChPoS6EUIK4NdvU9mNmPmk8JKfD8%2Fd9m4xsOTcn0k8v70RwY%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "6817043fa9a50efe-DFW"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3\",\n    \"didDoc\": {\n        \"id\": \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3\",\n        \"controller\": \"did:velocity:0x7c98a6cea317ec176ba865a42d3eae639dfe9fb1\",\n        \"publicKey\": [\n            {\n                \"id\": \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3#key-1\",\n                \"type\": \"EcdsaSecp256k1VerificationKey2019\",\n                \"controller\": \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3\",\n                \"publicKeyBase58\": \"SPosdNZU9WFgt7LhvMzr4HT2V4CgHhxEWZJNr9HDfVpzfohkB5kiyK4AcVeQPJv7VEGhbVJ6Ww7AHCka7w6j4xAz\"\n            }\n        ],\n        \"assertionMethod\": [\n            \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3#key-1\"\n        ],\n        \"service\": [\n            {\n                \"id\": \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3#velocity-issuer-1\",\n                \"type\": \"VelocityCredentialAgentIssuer_v1.0\",\n                \"credentialTypes\": [\n                    \"PastEmploymentPosition\"\n                ],\n                \"serviceEndpoint\": \"https://devagent.velocitycareerlabs.io\"\n            }\n        ],\n        \"created\": \"2021-08-19T23:03:40.952Z\",\n        \"updated\": \"2021-08-19T23:03:40.965Z\",\n        \"proof\": {\n            \"created\": \"2021-08-19T23:03:40.965Z\",\n            \"jws\": \"3045022013ec8e8fe3a53ebbfe86eada497e24a9eaeafe7720c640240b27cae9359cee6702210089cc4c20fb85e4ee36a6412e26ea3385cdd961bf2a80cdf292d825a1518d8a7a\",\n            \"proofPurpose\": \"assertionMethod\",\n            \"type\": \"EcdsaSecp256k1Signature2019\",\n            \"verificationMethod\": \"did:velocity:0x7c98a6cea317ec176ba865a42d3eae639dfe9fb1#key-1\"\n        }\n    },\n    \"profile\": {\n        \"name\": \"ABC Health Services\",\n        \"location\": {\n            \"countryCode\": \"US\",\n            \"regionCode\": \"NY\"\n        },\n        \"logo\": \"https://docs.velocitycareerlabs.io/Logos/MCB.png\",\n        \"website\": \"https://www.abchealth.com\",\n        \"contactEmail\": \"velocity@abchealth.com\",\n        \"founded\": \"1965-01-01\",\n        \"closed\": \"2020-01-01\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"DunnAndBradstreet\",\n                \"number\": \"1\",\n                \"uri\": \"uri://uri\"\n            }\n        ],\n        \"did\": \"did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3\",\n        \"verifiableCredentialJwt\": \"https://devservices.velocitycareerlabs.io/api/v0.6/organizations/did:velocity:0x9973b0ea0d9cd317ac8a73f281535d21c61c43a3/resolve-vc/did:velocity:0497349a1520e64dc357e4d96f2c89201b82f0eda09778cb9d1beeb537a9b7bc1bfce1e4eab3e4ed1d7874a7ca57642b89991701c9216a6c529c860eab90e48f99\"\n    },\n    \"privateKey\": \"29aa13ef3eceb3e7b434cbdbe7924655d64f8d1e4b91bf812cd1791b9d04638d\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Orgs: Get Full Organizations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/full?page.skip=0&page.size=200",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"full"
+					],
+					"query": [
+						{
+							"key": "filter.serviceTypes",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "filter.credentialTypes",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "filter.did",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page.skip",
+							"value": "0"
+						},
+						{
+							"key": "page.size",
+							"value": "200"
+						},
+						{
+							"key": "q",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -85,12 +319,8 @@
 				{
 					"name": "Default Response",
 					"originalRequest": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"profile\": {\n        \"name\": \"<string>\",\n        \"registrationNumbers\": [\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            },\n            {\n                \"authority\": \"<string>\",\n                \"number\": \"<string>\",\n                \"uri\": \"<uri>\"\n            }\n        ],\n        \"logo\": \"<string>\",\n        \"location\": {\n            \"countryCode\": \"<regex>\",\n            \"regionCode\": \"<regex>\"\n        },\n        \"founded\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"closed\": {\n            \"day\": \"<integer>\",\n            \"month\": \"<integer>\",\n            \"year\": \"<integer>\"\n        },\n        \"contactEmail\": \"<email>\"\n    },\n    \"serviceEndpoints\": [\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        },\n        {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"serviceEndpoint\": \"<string>\"\n        }\n    ]\n}"
-						},
 						"url": {
 							"raw": "{{baseUrl}}/api/v0.6/organizations",
 							"host": [
@@ -118,12 +348,12 @@
 			]
 		},
 		{
-			"name": "Orgs: Get Issuer DID Docs by Credential Type Issued",
+			"name": "Orgs: Get Full Organization",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations/issuers?type=:type",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/full/{{did}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -131,13 +361,8 @@
 						"api",
 						"v0.6",
 						"organizations",
-						"issuers"
-					],
-					"query": [
-						{
-							"key": "type",
-							"value": "CurrentEmploymentPosition"
-						}
+						"full",
+						"{{did}}"
 					]
 				}
 			},
@@ -148,7 +373,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/v0.6/organizations/issuers",
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -156,7 +381,12 @@
 								"api",
 								"v0.6",
 								"organizations",
-								"issuers"
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
 							]
 						}
 					},
@@ -175,7 +405,56 @@
 			]
 		},
 		{
-			"name": "Orgs: Get Organziation DID Doc",
+			"name": "Orgs: Get Organizations (DID Docs)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Get Organization DID Doc",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -231,7 +510,63 @@
 			]
 		},
 		{
-			"name": "Orgs: Update Organization Basic Profile",
+			"name": "Orgs: Delete Organization DID/DID Doc",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"{{did}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								":did"
+							],
+							"variable": [
+								{
+									"key": "did"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Orgs: Update Organization Profile",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -242,10 +577,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"string\",\n    \"logo\": \"https://example.com/logo.png\",\n    \"location\": {\n        \"countryCode\": \"US\",\n        \"regionCode\": \"CA\"\n    },\n    \"founded\": {\n        \"year\": 1981\n    }\n}"
+					"raw": "{\n    \"name\": \"1360 Bug Company\",\n    \"registrationNumbers\": [\n        {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1360\",\n            \"uri\": \"http://www.ics.uci.edu/pub/ietf/uri/#Related\"\n        },\n        {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1360\",\n            \"uri\": \"http://www.ics.uci.edu/pub/ietf/uri/#Related\"\n        }\n    ],\n    \"logo\": \"https://example.com/logo.png\",\n    \"location\": {\n        \"countryCode\": \"BY\",\n        \"regionCode\": \"MN\"\n    },\n    \"founded\": \"2020-03-03\",\n    \"closed\": \"2022-03-03\",\n    \"contactEmail\": \"example@mail.ru\",\n    \"website\": \"https://example.com\"\n}"
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}",
+					"raw": "{{baseUrl}}/api/v0.6/organizations/profile/{{did}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -253,22 +588,28 @@
 						"api",
 						"v0.6",
 						"organizations",
+						"profile",
 						"{{did}}"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Default Response",
+					"name": "Orgs: Update Organization Profile Example 1 for 1360 Bug Company",
 					"originalRequest": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"<string>\",\n    \"registrationNumbers\": [\n        {\n            \"authority\": \"<string>\",\n            \"number\": \"<string>\",\n            \"uri\": \"<uri>\"\n        },\n        {\n            \"authority\": \"<string>\",\n            \"number\": \"<string>\",\n            \"uri\": \"<uri>\"\n        }\n    ],\n    \"logo\": \"<string>\",\n    \"location\": {\n        \"countryCode\": \"<regex>\",\n        \"regionCode\": \"<regex>\"\n    },\n    \"founded\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"closed\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n    },\n    \"contactEmail\": \"<email>\"\n}"
+							"raw": "{\n    \"name\": \"1360 Bug Company\",\n    \"registrationNumbers\": [\n        {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1360\",\n            \"uri\": \"http://www.ics.uci.edu/pub/ietf/uri/#Related\"\n        },\n        {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1360\",\n            \"uri\": \"http://www.ics.uci.edu/pub/ietf/uri/#Related\"\n        }\n    ],\n    \"logo\": \"https://example.com/logo.png\",\n    \"location\": {\n        \"countryCode\": \"BY\",\n        \"regionCode\": \"MN\"\n    },\n    \"founded\": \"2020-03-03\",\n    \"closed\": \"2022-03-03\",\n    \"contactEmail\": \"example@mail.ru\",\n    \"website\": \"https://example.com\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/v0.6/organizations/:did",
+							"raw": "{{baseUrl}}/api/v0.6/organizations/profile/{{did}}",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -276,26 +617,102 @@
 								"api",
 								"v0.6",
 								"organizations",
-								":did"
-							],
-							"variable": [
-								{
-									"key": "did"
-								}
+								"profile",
+								"{{did}}"
 							]
 						}
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": "text",
+					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Date",
+							"value": "Mon, 16 Aug 2021 22:37:13 GMT"
+						},
+						{
 							"key": "Content-Type",
-							"value": "text/plain"
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-security-policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data: validator.swagger.io;object-src 'none';script-src 'self' 'sha256-2yQBTLGLI1sDcBILfj/o6b5ufMv6CEwPYOk3RZI/WjE=' 'sha256-GeDavzSZ8O71Jggf/pQkKbt52dfZkrdNMQ3e+Ox+AkI=';script-src-attr 'none';style-src 'self' https: 'sha256-pyVPiLlnqL9OWVoJPs/E6VVF5hBecRzM2gBiarnaqAo=';upgrade-insecure-requests;form-action 'self'"
+						},
+						{
+							"key": "x-dns-prefetch-control",
+							"value": "off"
+						},
+						{
+							"key": "expect-ct",
+							"value": "max-age=0"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=%2Bsh8qo6f6FX1%2BaLzkHHkKZoWEfDr3RdhgXVCMCQRwHUfC6TnCGi0FEsCvNCpUCLKqwviKUMbpe4BC8qr7XafoPW05vmlX76WWJf0H6SImT%2FtGkM9dy6b9rBrQFJQkL5eYIOOLGqr7ZYlAaJh7gHJ%2BVeV8ec%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "67fe254f4f62287b-DFW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400"
 						}
 					],
 					"cookie": [],
-					"body": ""
+					"body": "{\n    \"name\": \"1360 Bug Company\",\n    \"location\": {\n        \"countryCode\": \"BY\",\n        \"regionCode\": \"MN\"\n    },\n    \"logo\": \"https://example.com/logo.png\",\n    \"website\": \"https://example.com\",\n    \"contactEmail\": \"example@mail.ru\",\n    \"founded\": \"2020-03-03\",\n    \"closed\": \"2022-03-03\",\n    \"registrationNumbers\": [\n        {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1360\",\n            \"uri\": \"http://www.ics.uci.edu/pub/ietf/uri/#Related\"\n        },\n        {\n            \"authority\": \"DunnAndBradstreet\",\n            \"number\": \"1360\",\n            \"uri\": \"http://www.ics.uci.edu/pub/ietf/uri/#Related\"\n        }\n    ],\n    \"did\": \"did:velocity:0x73232eda30ab159329c8e3d011c846fe2106ba90\",\n    \"verifiableCredentialJwt\": \"https://devservices.velocitycareerlabs.io/api/v0.6/organizations/did:velocity:0x73232eda30ab159329c8e3d011c846fe2106ba90/resolve-vc/did:velocity:04bbb63d1cc740624e2927b528ace6b98c5ebca5fc52081cad59f079f08aa06eff9de0b0313cc3c5a05f28a035fbf25980068dc5f20d003a7f7ca641733f99a7f1\"\n}"
 				}
 			]
 		},
@@ -369,7 +786,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"serviceEndpoint\":\"http://testagent.velocitycareerlabs.io\",\n    \"id\":\"velocity-credential-agent-issuer-3\",\n    \"type\":\"VelocityCredentialAgentIssuer_v1.0\",\n    \"credentialTypes\": [\"CurrentEmploymentPosition\"]\n}"
+					"raw": "{\n            \"serviceEndpoint\": \"https://velocityapidev.cisive.com\",\n            \"id\": \"did:ethr:0xfbad8ef7229cd10bac06935e53c5841da1d33fc1#velocity-credential-agent-issuer-1\",\n            \"type\": \"VelocityCredentialAgentIssuer_v1.0\",\n                \"credentialTypes\": [\n                    \"PastEmploymentPosition\",\n                    \"CurrentEmploymentPosition\",\n                    \"EducationDegree\"\n                ]\n        }"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services",
@@ -503,7 +920,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"serviceEndpoint\": \"<string>\"\n}"
+					"raw": "{\n    \"serviceEndpoint\": \"http://velocity.sumtotaldevelopment.net\",\n    \"id\": \"did:ethr:0x9568a77fcb683289e109dbb138d73ab660d778ed#velocity-credential-agent-inspector-1\",\n    \"type\": \"VelocityCredentialAgentInspector_v1.0\"\n}"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/api/v0.6/organizations/{{did}}/services/{{serviceIdFragment}}",
@@ -629,6 +1046,63 @@
 					"body": ""
 				}
 			]
+		},
+		{
+			"name": "DEPRECATED Orgs: Get Issuer DID Docs by Credential Type Issued",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v0.6/organizations/issuers?type=PastEmploymentPosition",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v0.6",
+						"organizations",
+						"issuers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "PastEmploymentPosition"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v0.6/organizations/issuers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v0.6",
+								"organizations",
+								"issuers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		}
 	],
 	"auth": {
@@ -636,7 +1110,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidmVsb2NpdHkuYWRtaW5AZXhhbXBsZS5jb20ifQ.vssTp--KThrqP0-E7BOpXfTneXmQUYcv0elKAcXhAVg",
+				"value": "{{authToken}}",
 				"type": "string"
 			}
 		]
@@ -645,7 +1119,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d6819b7a-f4ad-4863-b3bb-9a75a0ea80fb",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -655,7 +1128,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "335a4fb5-8d9b-4e3e-bb43-a4f03c2836a3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -665,20 +1137,16 @@
 	],
 	"variable": [
 		{
-			"id": "e98e810b-aec4-488c-98b9-6391904cfcce",
 			"key": "baseUrl",
 			"value": "https://stagingservices.velocitycareerlabs.io"
 		},
 		{
-			"id": "1a4c9359-29ea-43ad-8d42-12dab3d233d5",
 			"key": "did",
 			"value": "did:ethr:example"
 		},
 		{
-			"id": "484f5f48-c332-4f46-b4d5-6f62f5c231ee",
 			"key": "serviceIdFragment",
 			"value": "credential-agent-issuer-1"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
